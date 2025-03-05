@@ -6,10 +6,10 @@
 
 ۲.  پکیچهای زیر رو با کامندهای زیر توی محیطCmd نصب کنید:
 
-	```shell
 	pip install selenium==4.29.0
+
 	pip install webdriver-manager==4.0.2
-	```
+
 
 ۳. در فایل user-pass.txt یوز و پسورد سامانه sess تون رو بعد از دو نقطه بنویسید.
 
