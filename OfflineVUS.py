@@ -82,8 +82,6 @@ def downloader(file_url, course_dir, file_name):
 # load login page
 print("Loading ... ")
 options = webdriver.ChromeOptions()
-options.add_argument('--ignore-certificate-errors')
-options.add_argument('--ignore-ssl-errors')
 driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
 driver.get('https://sess.shirazu.ac.ir/')
 
