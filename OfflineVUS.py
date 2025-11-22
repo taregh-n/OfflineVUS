@@ -47,7 +47,7 @@ def makeCourseDir(semester, course_name):
 
 def getFileNameId(class_url):
     try:
-        return re.findall('shirazu\.ac\.ir/(\w*)', class_url)[0]
+        return re.findall(r'shirazu\.ac\.ir/(\w*)', class_url)[0]
     except:
         return None
 
@@ -82,7 +82,15 @@ def downloader(file_url, course_dir, file_name):
 # load login page
 print("Loading ... ")
 options = webdriver.ChromeOptions()
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()), options=options)
+options.add_argument('--ignore-certificate-errors-spki-list')
+options.add_argument('--ignore-certificate-errors')
+options.add_argument('--ignore-ssl-errors')
+options.accept_insecure_certs = True
+chrome_install = ChromeDriverManager().install()
+folder = path.dirname(chrome_install)
+chromedriver_path = path.join(folder, "chromedriver.exe")
+service = ChromeService(chromedriver_path)
+driver = webdriver.Chrome(service=service, options=options)
 driver.get('https://sess.shirazu.ac.ir/')
 
 sleep(2)
